@@ -6,35 +6,43 @@
   <script src="https://unpkg.com/vue"></script>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
+  
 </head>
 <body>
   <br>
-    <div class="col-lg-offset-4 col-lg-4">
-      <div class="panel panel-primary" id="formdiv">
-        <div class="panel-heading">
-          <h3 class="panel-title">Vue.js SignUp Form Validation</h3>
-        </div>
-        <div class="panel-body">
-          <form >
-            <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
-              <input type="text" placeholder="Email" name="email" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Password</label>
-              <input type="password" placeholder="Password" name="password" class="form-control">
-            </div>      
-            <div class="form-group">
-              <label for="exampleInputEmail1">Confirm Password</label>
-              <input type="password" placeholder="Confirm Password" name="confirmPassword" class="form-control">
-            </div>
-            <input type="submit" value="Sign Up" class="btn btn-warning">
-            <small><a class="pull-right" href="#">Terms and Conditions</a></small>
-          </form>
+  <div id="app">
+    <component v-bind:is="componentName"></component>
+  </div>
+    
+    <template id="signUpForm">
+      <div class="col-lg-offset-4 col-lg-4">
+        <div class="panel panel-primary" id="formdiv">
+          <div class="panel-heading">
+            <h3 class="panel-title">Vue.js SignUp Form Validation</h3>
+          </div>
+          <div class="panel-body">
+            <form >
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="text" placeholder="Email" name="email" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Password</label>
+                <input type="password" placeholder="Password" name="password" class="form-control">
+              </div>      
+              <div class="form-group">
+                <label for="exampleInputEmail1">Confirm Password</label>
+                <input type="password" placeholder="Confirm Password" name="confirmPassword" class="form-control">
+              </div>
+              <input type="submit" value="Sign Up" class="btn btn-warning">
+              <small><a class="pull-right" href="#">Terms and Conditions</a></small>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </template>
 
+  <template id="tnc">
   <div class="col-lg-offset-4 col-lg-4">
     <div class="panel panel-info">
       <div class="panel-heading">
@@ -54,5 +62,8 @@
       </div>
     </div>
   </div>
+  </template>
+
+  <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
