@@ -1,0 +1,18 @@
+Vue.component('signUpForm',{
+
+	template : "#signUpForm"
+});
+
+Vue.component('tnc',{
+
+	template : "#tnc"
+});
+
+new Vue({
+
+	el : "#app",
+
+	data : {
+		componentName : "signUpForm",
+	}
+})
