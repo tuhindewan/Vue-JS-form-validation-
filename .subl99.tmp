@@ -1,0 +1,52 @@
+Vue.component('signUpForm',{
+
+	template : "#signUpForm",
+
+	data(){
+		return {
+			disableButton : true,
+			email : '',
+			confirmPassword : '',
+			password : '',
+		}
+	},
+
+	watch : {
+		email(value){
+			this.email = value;
+			this.check_email(value);
+		}
+	},
+
+	methods : {
+		chnageToTnc : function(){
+			this.$emit('change','tnc');
+		}
+	}
+});
+
+Vue.component('tnc',{
+
+	template : "#tnc",
+
+	methods : {
+		backToSignUp : function(){
+			this.$emit('change','signUpForm');
+		}
+	}
+});
+
+new Vue({
+
+	el : "#app",
+
+	data : {
+		componentName : "signUpForm",
+	},
+
+	methods : {
+		change : function(newCom){
+			this.componentName = newCom;
+		}
+	}
+})

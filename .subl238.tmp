@@ -46,16 +46,7 @@ Vue.component('signUpForm',{
 		},
 
 		check_confirmPassword: function(value){
-			if(this.confirmPasswordLengthCheck(value)){
-
-				if (value == this.password) {
-					this.msg['confirmPassword'] = "";
-					this.disableButton = false;
-				}else{
-					this.msg['confirmPassword'] = "Password does not match. Please try again.";
-				}
-			}
-
+			this.confirmPasswordLengthCheck(value);
 		},
 
 		passwordLengthCheck: function(pass_length){
@@ -64,23 +55,17 @@ Vue.component('signUpForm',{
 				this.msg['password'] = "Password must be contain 6 characters." +remainingChars+ " more to go.";
 			}else{
 				this.msg['password'] = "";
-				
 			}
 		},
 
 		confirmPasswordLengthCheck: function(pass_length){
 			remainingChars = 6-pass_length.length;
 			if (pass_length.length < 6) {
-				this.msg['confirmPassword'] = "Password must be contain 6 characters." +remainingChars+ " more to go.";
+				this.msg['password'] = "Password must be contain 6 characters." +remainingChars+ " more to go.";
 			}else{
-				this.msg['confirmPassword'] = "";
-				return true;
+				this.msg['password'] = "";
 			}
 		},
-
-		submit : function(){
-			alert('validation complete.');
-		}
 	}
 });
 

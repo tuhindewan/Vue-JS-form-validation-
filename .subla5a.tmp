@@ -1,0 +1,74 @@
+Vue.component('signUpForm',{
+
+	template : "#signUpForm",
+
+	data(){
+		return {
+			disableButton : true,
+			email : '',
+			confirmPassword : '',
+			password : '',
+			msg : [],
+		}
+	},
+
+	watch : {
+		email(value){
+			this.check_email(value);
+		},
+
+		password(value){
+			this.check_password(value);
+		},
+	},
+
+	methods : {
+		chnageToTnc : function(){
+			this.$emit('change','tnc');
+		},
+
+		check_email : function(value){
+			if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value))
+			  {
+			    this.msg['email'] = "";
+			  }
+			else{
+				this.msg['email'] = "Keep typing.. we're waiting for correct email";
+			}  	    
+		},
+
+		check_password : function(value){
+
+			remainingChars = 6-value.length;
+			if (value.length < 6) {
+				this.msg['password'] = "Password must be contain 6 characters" +;
+			};
+		}
+	}
+});
+
+Vue.component('tnc',{
+
+	template : "#tnc",
+
+	methods : {
+		backToSignUp : function(){
+			this.$emit('change','signUpForm');
+		}
+	}
+});
+
+new Vue({
+
+	el : "#app",
+
+	data : {
+		componentName : "signUpForm",
+	},
+
+	methods : {
+		change : function(newCom){
+			this.componentName = newCom;
+		}
+	}
+})
